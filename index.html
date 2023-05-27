@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Study Well</title>
+
+    <style>
+        body {
+            background-image: url("bg.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .content {
+            position: fixed;
+        }
+
+        h2 {
+            font-size: 52px;
+            font-family: Cursive, sans-serif;
+        }
+
+        h3 {
+            font-size: 18px;
+            font-family: Cursive, sans-serif;
+            text-align: center;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        .countdown-container {
+            text-align: center;
+        }
+
+        .countdown {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .countdown-days {
+            color: red;
+            animation: countdown-animation 1s ease-in-out infinite;
+            display: inline-block;
+        }
+
+        @keyframes countdown-animation {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .additional-text {
+            font-size: 18px;
+            color: rgb(0, 92, 8);
+            margin-left: 15px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            display: inline-block;
+            margin-right: 75px;
+        }
+
+        li a {
+            font-size: 21px;
+            color: black;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        li a:hover {
+            color: green;
+        }
+
+        li:before {
+            content: "\2022";
+            font-size: 24px;
+            margin-right: 6px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            position: relative;
+        }
+
+        ul::after {
+            content: "";
+            display: block;
+            width: calc(100% - 20px);
+            height: 2px;
+            background-color: rgba(2, 138, 20, 0.397);
+            position: absolute;
+            bottom: -5px;
+            left: 10px;
+        }
+
+        .image-container {
+            float: right;
+            top: 50px;
+            margin-right: 15px;
+            position: relative;
+        }
+
+        .image-container img {
+            display: block;
+            width: 100%;
+        }
+
+        .image-text {
+            position: absolute;
+            top: -50px;
+            left: 460px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 10px;
+            font-size: 18px;
+            border-radius: 10px;
+
+        }
+
+        .text {
+            position: absolute;
+            top: 700px;
+            left: 1000px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 10px;
+            font-size: 18px;
+            font-family: Cursive, sans-serif;
+            border-radius: 10px;
+        }
+
+        .fade-box {
+            display: inline-block;
+            padding: 10px;
+            background-color: rgba(165, 159, 159, 0.747);
+            border-radius: 5px;
+            animation: fade-in 1s ease-in-out forwards;
+        }
+
+        .fade-box1 {
+            display: inline-block;
+            padding: 10px;
+            background-color: rgba(203, 255, 187, 0.7);
+            border-radius: 5px;
+            animation: fade-in 1s ease-in-out forwards;
+            margin-left: 150px;
+        }
+
+        @keyframes fade-in {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+
+    <script>
+        const examStartDate = new Date("June 6, 2023 00:00:00 GMT+0530");
+
+        function updateCountdown() {
+
+            const now = new Date();
+
+            const remainingTime = examStartDate - now;
+
+            const days = Math.floor(remainingTime / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((remainingTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
+
+            document.getElementById("countdown-days").textContent = days;
+            document.getElementById("countdown-hours").textContent = hours;
+            document.getElementById("countdown-minutes").textContent = minutes;
+            document.getElementById("countdown-seconds").textContent = seconds;
+        }
+
+        setInterval(updateCountdown, 1000);
+    </script>
+
+</head>
+
+<body>
+
+    <div class="content">
+
+
+        <div class="countdown-container">
+            <h2>Best of luck for the Exam!</h2>
+            <div class="fade-box">
+                <p class="countdown">
+                    Time remaining :
+                    <span class="countdown-days" id="countdown-days"></span>
+                    <span class="countdown-days">days,</span>
+                    <span id="countdown-hours"></span> hours,
+                    <span id="countdown-minutes"></span> minutes,
+                    <span id="countdown-seconds"></span> seconds
+                </p>
+            </div>
+        </div>
+
+        <br>
+        <br>
+
+        <div class="fade-box1">
+            <h3>Past Papers</h3>
+            <h1>MAD <span class="additional-text">(Credit Points - 4)</span></h1>
+            <ul>
+                <li><a href="2019_mad.pdf" target="_blank">2019-Oct</a></li>
+                <li><a href="2022_mad_j.pdf" target="_blank">2022-June</a></li>
+                <li><a href="2022_mad-n.pdf" target="_blank">2022-November</a></li>
+            </ul>
+            <br>
+            <h1>DSA<span class="additional-text">(Credit Points - 4)</span></h1>
+            <ul>
+                <li><a href="2019_dsa.pdf" target="_blank">2019-Oct</a></li>
+                <li><a href="2022_DSA-june.pdf" target="_blank">2022-June</a></li>
+                <li><a href="2022_dsa-nov.pdf" target="_blank">2022-November</a></li>
+            </ul>
+            <br>
+            <h1>Pro. Skill<span class="additional-text">(Credit Points - 2)</span></h1>
+            <ul>
+                <li><a href="2019_pskill.pdf" target="_blank">2019-Oct</a></li>
+                <li><a href="2022_pskill-june.pdf" target="_blank">2022-June</a></li>
+                <li><a href="2022_pskill-nov.pdf" target="_blank">2022-November</a></li>
+            </ul>
+            <br>
+            <h1>Prob. & Stat.<span class="additional-text">(Credit Points - 3)</span></h1>
+            <ul>
+                <li><a href="2019_ps.pdf" target="_blank">2019-Oct</a></li>
+                <li><a href="2022_ps-june.pdf" target="_blank">2022-June</a></li>
+                <li><a href="2022_ps-nov.pdf" target="_blank">2022-November</a></li>
+            </ul>
+        </div>
+
+
+        <div class="image-container">
+            <img src="tt.jpg" alt="Image">
+            <div class="image-text">Exam Time Table</div>
+        </div>
+
+        <div class="text">
+            <p>Just a quick message to remind you that I love you endlessly and believe in your abilities. </p>
+            <p>You've got this, and I'm right here cheering you on. Good luck with your exams babe...💞</p>
+        </div>
+
+    </div>
+</body>
+
+</html>
